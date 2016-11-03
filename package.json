@@ -1,0 +1,29 @@
+{
+  "name": "amorph-hex",
+  "version": "0.0.0",
+  "description": "Hex converters for Amorph",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SafeMarket/amorph-hex.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SafeMarket/amorph-hex/issues"
+  },
+  "homepage": "https://github.com/SafeMarket/amorph-hex#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "nobject": "0.0.3"
+  }
+}
