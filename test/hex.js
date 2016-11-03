@@ -8,7 +8,7 @@ describe('hexConverters', () => {
     expect(hexConverters).to.be.instanceOf(Nobject)
   })
 
-  describe('hex.uint8array', () => {
+  describe('hex-uint8array', () => {
     it('test 1', () => {
       const uint8array = hexConverters.get(['hex', 'uint8Array'])('000102ff')
       expect(uint8array).to.be.instanceOf(Uint8Array)
@@ -28,7 +28,7 @@ describe('hexConverters', () => {
     })
   })
 
-  describe('uint8array.hex', () => {
+  describe('uint8array-hex', () => {
     it('test 1', () => {
       const hex = hexConverters.get(['uint8Array', 'hex'])(new Uint8Array([0, 1, 2, 255]))
       expect(hex).to.be.a.string
@@ -42,7 +42,7 @@ describe('hexConverters', () => {
     })
   })
 
-  describe('hex.prefixedHex', () => {
+  describe('hex-hex.prefixed', () => {
     it('test 1', () => {
       const prefixedHex = hexConverters.get(['hex', 'hex.prefixed'])('00ff')
       expect(prefixedHex).to.be.a.string
