@@ -38,5 +38,18 @@ hexNobject.set(['hex.prefixed', 'hex'], (prefixedHex) => {
 
 module.exports = {
   pluginVersion: 1,
-  converters: hexNobject
+  converters: hexNobject,
+  equivalenceTests: {
+    uint8Array: (a, b) => {
+      if (a.length !== b.length) {
+        return false
+      }
+      for (var i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
 }
