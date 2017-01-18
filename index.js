@@ -1,5 +1,6 @@
 const Nobject = require('nobject')
 const hexNobject = new Nobject
+const arrayEquals = require('array-equal')
 
 hexNobject.set(['hex', 'uint8Array'], (hex) => {
   const array = []
@@ -40,16 +41,6 @@ module.exports = {
   pluginVersion: 1,
   converters: hexNobject,
   equivalenceTests: {
-    uint8Array: (a, b) => {
-      if (a.length !== b.length) {
-        return false
-      }
-      for (var i = 0; i < a.length; i++) {
-        if (a[i] !== b[i]) {
-          return false;
-        }
-      }
-      return true;
-    }
+    uint8Array: arrayEquals
   }
 }

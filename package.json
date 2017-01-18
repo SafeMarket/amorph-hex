@@ -24,6 +24,7 @@
     "mocha": "^3.1.2"
   },
   "dependencies": {
+    "array-equal": "^1.0.0",
     "nobject": "0.0.3"
   }
 }
