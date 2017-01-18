@@ -1,8 +1,8 @@
 const Nobject = require('nobject')
-const hexNobject = new Nobject
+const converters = new Nobject
 const arrayEquals = require('array-equal')
 
-hexNobject.set(['hex', 'uint8Array'], (hex) => {
+converters.set(['hex', 'uint8Array'], (hex) => {
   const array = []
   for (let i = 0; i < hex.length; i += 2) {
     const hexPart = hex.substr(i,2)
@@ -12,7 +12,7 @@ hexNobject.set(['hex', 'uint8Array'], (hex) => {
   return new Uint8Array(array)
 })
 
-hexNobject.set(['uint8Array', 'hex'], (uint8Array) => {
+converters.set(['uint8Array', 'hex'], (uint8Array) => {
   return Array.from(uint8Array).map((uint8) => {
 
     const hexPart = uint8.toString(16)
@@ -28,18 +28,18 @@ hexNobject.set(['uint8Array', 'hex'], (uint8Array) => {
   }).join('')
 })
 
-hexNobject.set(['hex', 'hex.prefixed'], (hex) => {
+converters.set(['hex', 'hex.prefixed'], (hex) => {
   return '0x'+hex
 })
 
-hexNobject.set(['hex.prefixed', 'hex'], (prefixedHex) => {
+converters.set(['hex.prefixed', 'hex'], (prefixedHex) => {
   return prefixedHex.substr(2)
 })
 
 
 module.exports = {
   pluginVersion: 1,
-  converters: hexNobject,
+  converters: converters,
   equivalenceTests: {
     uint8Array: arrayEquals
   }
