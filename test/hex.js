@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const hexConverters = require('../')
+const hexConverters = require('../').converters
 const Nobject = require('nobject')
 
 describe('hexConverters', () => {

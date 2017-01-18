@@ -1,5 +1,5 @@
 const Nobject = require('nobject')
-  const hexNobject = new Nobject
+const hexNobject = new Nobject
 
 hexNobject.set(['hex', 'uint8Array'], (hex) => {
   const array = []
@@ -13,7 +13,7 @@ hexNobject.set(['hex', 'uint8Array'], (hex) => {
 
 hexNobject.set(['uint8Array', 'hex'], (uint8Array) => {
   return Array.from(uint8Array).map((uint8) => {
-    
+
     const hexPart = uint8.toString(16)
 
     if (uint8 === 0) {
@@ -36,4 +36,7 @@ hexNobject.set(['hex.prefixed', 'hex'], (prefixedHex) => {
 })
 
 
-module.exports = hexNobject
+module.exports = {
+  pluginVersion: 1,
+  converters: hexNobject
+}
