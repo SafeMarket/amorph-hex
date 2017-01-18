@@ -1,6 +1,6 @@
 {
   "name": "amorph-hex",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Amorph converters for hex, hex.prefixed, and uint8array",
   "main": "index.js",
   "directories": {
