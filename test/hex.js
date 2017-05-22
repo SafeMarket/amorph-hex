@@ -9,35 +9,35 @@ describe('converters', () => {
     expect(converters).to.be.instanceOf(Nobject)
   })
 
-  describe('hex-uint8array', () => {
+  describe('hex-array', () => {
     it('test 1', () => {
-      const uint8array = converters.get(['hex', 'uint8Array'])('000102ff')
-      expect(uint8array).to.be.instanceOf(Uint8Array)
-      expect(uint8array).to.deep.equal(new Uint8Array([0, 1, 2, 255]))
+      const array = converters.get(['hex', 'array'])('000102ff')
+      expect(array).to.be.instanceOf(Array)
+      expect(array).to.deep.equal([0, 1, 2, 255])
     })
 
     it('test 2', () => {
-      const uint8array = converters.get(['hex', 'uint8Array'])('000102f')
-      expect(uint8array).to.be.instanceOf(Uint8Array)
-      expect(uint8array).to.deep.equal(new Uint8Array([0, 1, 2, 15]))
+      const array = converters.get(['hex', 'array'])('000102f')
+      expect(array).to.be.instanceOf(Array)
+      expect(array).to.deep.equal([0, 1, 2, 15])
     })
 
     it('test 3', () => {
-      const uint8array = converters.get(['hex', 'uint8Array'])('000102FF')
-      expect(uint8array).to.be.instanceOf(Uint8Array)
-      expect(uint8array).to.deep.equal(new Uint8Array([0, 1, 2, 255]))
+      const array = converters.get(['hex', 'array'])('000102FF')
+      expect(array).to.be.instanceOf(Array)
+      expect(array).to.deep.equal([0, 1, 2, 255])
     })
   })
 
-  describe('uint8array-hex', () => {
+  describe('array-hex', () => {
     it('test 1', () => {
-      const hex = converters.get(['uint8Array', 'hex'])(new Uint8Array([0, 1, 2, 255]))
+      const hex = converters.get(['array', 'hex'])([0, 1, 2, 255])
       expect(hex).to.be.a.string
       expect(hex).to.equal('000102ff')
     })
 
     it('test 2', () => {
-      const hex = converters.get(['uint8Array', 'hex'])(new Uint8Array([0, 1, 2, 15]))
+      const hex = converters.get(['array', 'hex'])([0, 1, 2, 15])
       expect(hex).to.be.a.string
       expect(hex).to.equal('0001020f')
     })
@@ -60,29 +60,29 @@ describe('converters', () => {
 })
 
 describe('equivalenceTests', () => {
-  describe('uint8Array', () => {
-    const test = plugin.equivalenceTests.uint8Array
+  describe('array', () => {
+    const test = plugin.equivalenceTests.array
 
     it('should return false when lengths dont match', () => {
       expect(
-        test(new Uint8Array([]), new Uint8Array([1]))
+        test([], [1])
       ).to.equal(false)
       expect(
-        test(new Uint8Array([1]), new Uint8Array([]))
+        test([1], [])
       ).to.equal(false)
     })
 
     it('should return false when values dont match', () => {
       expect(
-        test(new Uint8Array([0]), new Uint8Array([1]))
+        test([0], [1])
       ).to.equal(false)
       expect(
-        test(new Uint8Array([1]), new Uint8Array([0]))
+        test([1], [0])
       ).to.equal(false)
     })
     it('should return true when values do match', () => {
       expect(
-        test(new Uint8Array([1]), new Uint8Array([1]))
+        test([1], [1])
       ).to.equal(true)
     })
 
