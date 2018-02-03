@@ -9,8 +9,11 @@ describe('converters', () => {
     it('should .to', () => {
       converters.unprefixed.to(new Uint8Array([1, 2, 3, 4])).should.equal('01020304')
     })
-    it('should .from', () => {
+    it('should .from (even)', () => {
       converters.unprefixed.from('01020304').should.deep.equal(new Uint8Array([1, 2, 3, 4]))
+    })
+    it('should .from (odd)', () => {
+      converters.unprefixed.from('1020304').should.deep.equal(new Uint8Array([1, 2, 3, 4]))
     })
   })
 

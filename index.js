@@ -11,7 +11,8 @@ const unprefixed = new AmorphConverter((uint8Array) => {
       return hexPart
     }
   }).join('')
-}, (hex) => {
+}, (_hex) => {
+  const hex = (_hex.length % 2 === 0) ? _hex : `0${_hex}`
   const array = []
   for (let i = 0; i < hex.length; i += 2) {
     const hexPart = hex.substr(i,2)
